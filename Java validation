@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Booking Form</title>
+  <script>
+    function validateForm() {
+      var name = document.forms["bookingForm"]["name"].value;
+      var email = document.forms["bookingForm"]["email"].value;
+      var destination = document.forms["bookingForm"]["destination"].value;
+      var date = document.forms["bookingForm"]["date"].value;
+      
+      if (name == "" || email == "" || destination == "" || date == "") {
+        alert("Please fill in all fields.");
+        return false;
+      }
+
+      // Email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Travel Booking Form</h2>
+  <form name="bookingForm" onsubmit="return validateForm()" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email"
